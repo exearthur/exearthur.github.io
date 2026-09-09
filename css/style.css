@@ -27,6 +27,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -131,9 +132,11 @@ hr {
 }
 
 section {
+  width: 100%;
   max-width: 900px;
   margin: 0 auto 2rem;
   padding: 0 1.5rem;
+  box-sizing: border-box;
 }
 
 section h3 {
@@ -231,15 +234,15 @@ section a:hover {
 
 /**************   Responsiveness   *****************/
 @media (max-width: 680px) {
-    nav {
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-    }
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
 
-    .three-col {
-      grid-template-columns: 1fr;
-    }
+  .three-col {
+    grid-template-columns: 1fr;
+  }
 }
 
 /**************   Contact Page   *****************/
