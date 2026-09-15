@@ -446,7 +446,7 @@ figure {
   color: var(--text-on-dark);
 }
 
-.section-dark a {
+.section-dark a:not(.btn) {
   color: var(--link-on-dark);
 }
 
