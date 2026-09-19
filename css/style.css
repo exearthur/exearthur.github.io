@@ -65,6 +65,10 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
   margin: 0;
   font-family: var(--font-sans);
   font-size: 17px;
@@ -74,6 +78,26 @@ body {
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Sticky footer: on short pages (e.g. Contact), #main grows to fill
+   any leftover viewport height so the footer always meets the bottom
+   edge instead of trailing off after a short block of content. The
+   last section absorbs that extra space itself (rather than leaving
+   a blank gap before the footer) so its own background color simply
+   continues down to meet it. */
+#main {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+#main > :last-child {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex-shrink: 0;
 }
 
 img,
