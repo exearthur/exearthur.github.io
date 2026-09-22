@@ -87,6 +87,15 @@
     });
   }
 
+  /* GitHub contribution graph: ghchart.rshah.org sends a 24h cache-control
+     header, so a static <img src> can show a day-stale graph. Append the
+     current date so the browser fetches a fresh image once per day. */
+  const ghGraph = document.getElementById('gh-graph');
+  if (ghGraph) {
+    const today = new Date().toISOString().slice(0, 10);
+    ghGraph.src = `${ghGraph.src}?_=${today}`;
+  }
+
   /* GitHub activity: fetch top repos for the live section, with a
      1-hour cache so repeat visits don't re-hit the (rate-limited)
      public API, and a graceful link-out if the fetch ever fails. */
