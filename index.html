@@ -4,467 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthur Pacheco - Software Engineer</title>
     <meta name="description"
-        content="Arthur Pacheco — Computer Science student at the University of Georgia and aspiring software engineer.">
-    <meta name="theme-color" content="#fbfbfd">
-    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-    <link rel="icon" href="images/favicon-32.png" sizes="32x32" type="image/png">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+        content="Arthur Pacheco is a software engineer and Computer Science student at the University of Georgia, building full-stack web apps with React, TypeScript, Python, and Java. Graduating December 2026.">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/images/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
     <link rel="canonical" href="https://exearthur.github.io/">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://exearthur.github.io/">
-    <meta property="og:title" content="Arthur Pacheco">
+    <meta property="og:title" content="Arthur Pacheco - Software Engineer">
     <meta property="og:description"
-        content="Computer Science student at the University of Georgia and aspiring software engineer.">
+        content="Full-stack web apps with React, TypeScript, Python, and Java. Computer Science at the University of Georgia, graduating December 2026.">
     <meta property="og:image" content="https://exearthur.github.io/images/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <title>Arthur Pacheco</title>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Arthur Pacheco",
+        "url": "https://exearthur.github.io/",
+        "image": "https://exearthur.github.io/images/headshot-web.jpg",
+        "description": "Software engineer and Computer Science student at the University of Georgia.",
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of Georgia" },
+        "knowsAbout": ["Software engineering", "React", "TypeScript", "Python", "FastAPI", "Java"],
+        "sameAs": ["https://github.com/exearthur", "https://www.linkedin.com/in/arthur-amc-pacheco"]
+    }
+    </script>
+    <!-- Marks the document as scripted before first paint, so scroll-reveal
+         styles only ever hide content when the script that shows it will run. -->
+    <script>document.documentElement.classList.add('js');</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-    <!-- Icons referenced via <use href="#icon-…"> so each path is defined once. -->
-    <svg hidden aria-hidden="true">
-        <symbol id="icon-mark" viewBox="0 0 24 24">
-            <path d="M12 3 3.5 20h3.2l1.8-3.8h7L17.3 20h3.2L12 3Zm0 6.1 2.4 5.1H9.6L12 9.1Z" />
-        </symbol>
-        <symbol id="icon-star" viewBox="0 0 24 24">
-            <path d="M12 2 9.2 7.7 3 8.6l4.5 4.4L6.4 19 12 16.1 17.6 19l-1.1-6 4.5-4.4-6.2-.9L12 2Z" />
-        </symbol>
-        <symbol id="icon-chevron" viewBox="0 0 24 24">
-            <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-        </symbol>
-    </svg>
-
-    <a class="skip-link" href="#main">Skip to content</a>
-
-    <nav class="nav" id="nav" aria-label="Primary">
-        <div class="nav-inner">
-            <a class="nav-brand" href="index.html" aria-label="Arthur Pacheco — home">
-                <svg class="nav-mark">
-                    <use href="#icon-mark" />
-                </svg>
-                Arthur Pacheco
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html#experience">Experience</a></li>
-                <li><a href="index.html#projects">Projects</a></li>
-                <li><a href="index.html#skills">Skills</a></li>
-                <li><a href="index.html#education">Education</a></li>
-                <li><a href="index.html#github">GitHub</a></li>
-                <li><a href="contact.html" class="nav-cta">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <main id="main">
-
-        <!-- Hero -->
-        <header class="hero">
-            <div class="hero-glow" aria-hidden="true"></div>
-            <div class="hero-inner">
-                <div class="hero-copy stagger">
-                    <p class="eyebrow reveal">Computer Science &middot; University of Georgia</p>
-                    <h1 class="hero-title reveal">Arthur Pacheco.</h1>
-                    <p class="hero-sub text-gradient reveal">Software engineer<br>in the making.</p>
-                    <p class="hero-desc reveal">Builder of full‑stack apps, tech consulting intern, and chapter
-                        president. Graduating December&nbsp;2026.</p>
-                    <div class="actions reveal">
-                        <a class="btn" href="contact.html">Get in touch</a>
-                        <a class="link-arrow" href="#projects">See my work</a>
-                    </div>
-                </div>
-                <figure class="hero-figure reveal">
-                    <div class="hero-photo-wrap">
-                        <img class="hero-photo" src="images/headshot-web.jpg" alt="Portrait of Arthur Pacheco"
-                            width="933" height="1400" fetchpriority="high">
-                    </div>
-                </figure>
-            </div>
-            <a class="scroll-cue" href="#highlights" aria-label="Scroll down">
-                <svg>
-                    <use href="#icon-chevron" />
-                </svg>
-            </a>
-        </header>
-
-        <!-- Highlights -->
-        <section class="section section-dark" id="highlights">
-            <div class="container">
-                <h2 class="section-title reveal">Numbers that speak for themselves.</h2>
-                <div class="stats stagger">
-                    <div class="stat reveal">
-                        <p class="stat-value text-gradient tint-blue"><span data-count>200%</span></p>
-                        <p class="stat-label">growth in social media engagement</p>
-                    </div>
-                    <div class="stat reveal">
-                        <p class="stat-value text-gradient tint-red"><span data-count>68K+</span></p>
-                        <p class="stat-label">views generated across platforms</p>
-                    </div>
-                    <div class="stat reveal">
-                        <p class="stat-value text-gradient tint-green"><span data-count>100K+</span></p>
-                        <p class="stat-label">monthly Instagram viewers</p>
-                    </div>
-                    <div class="stat reveal">
-                        <p class="stat-value text-gradient tint-gold">4</p>
-                        <p class="stat-label">leadership roles held on campus</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience -->
-        <section class="section section-gray" id="experience">
-            <div class="container">
-                <p class="eyebrow reveal">Leadership &amp; Experience</p>
-                <h2 class="section-title reveal">Built in the real world.</h2>
-                <p class="section-lead reveal">From restoring a consulting firm's web presence in Seoul to running a
-                    chapter's executive board in Athens.</p>
-
-                <div class="timeline">
-                    <article class="role card lift reveal">
-                        <div class="role-meta">
-                            <p class="role-when">Jul 2024 – Aug 2024</p>
-                            <p class="role-where">Seoul, South Korea</p>
-                        </div>
-                        <div>
-                            <h3 class="role-title">Tech Consulting Intern</h3>
-                            <p class="role-org"><a href="https://ircconsultingkorea.com/" target="_blank"
-                                    rel="noopener">IRC Consulting</a></p>
-                            <ul class="role-points">
-                                <li>Diagnosed and restored a broken WordPress site, integrating Google Analytics 4 to
-                                    enable traffic and engagement tracking for the firm's web presence.</li>
-                                <li>Built a Python tool using the OpenAI API to automate business card contact entry
-                                    from trade show leads, eliminating manual data entry and improving intake
-                                    accuracy.</li>
-                                <li>Supported market entry strategy for technology companies entering the U.S. and
-                                    Korean markets, conducting industry research and engaging clients at international
-                                    trade shows on behalf of the Georgia Department of Economic Development.</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="role card lift reveal">
-                        <div class="role-meta">
-                            <p class="role-when">Apr 2026 – Present</p>
-                            <p class="role-where">University of Georgia</p>
-                        </div>
-                        <div>
-                            <h3 class="role-title">Chapter President</h3>
-                            <p class="role-org">Xi Kappa Fraternity Inc.</p>
-                            <ul class="role-points">
-                                <li>Manage the executive board and oversee administrative compliance with the
-                                    university Greek Life office and national board requirements.</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="role card lift reveal">
-                        <div class="role-meta">
-                            <p class="role-when">Nov 2025 – Present</p>
-                            <p class="role-where">University of Georgia</p>
-                        </div>
-                        <div>
-                            <h3 class="role-title">Vice President of Public Relations</h3>
-                            <p class="role-org">Multicultural Greek Council</p>
-                            <ul class="role-points">
-                                <li>Manage all social media accounts and maintain the organization's website, creating
-                                    graphics and content that grew Instagram engagement to 100,000+ monthly
-                                    viewers.</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="role card lift reveal">
-                        <div class="role-meta">
-                            <p class="role-when">May 2025 – Apr 2026</p>
-                            <p class="role-where">University of Georgia</p>
-                        </div>
-                        <div>
-                            <h3 class="role-title">External Vice President</h3>
-                            <p class="role-org">Xi Kappa Fraternity Inc.</p>
-                            <ul class="role-points">
-                                <li>Built partnerships with campus organizations through collaborative events.</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="role card lift reveal">
-                        <div class="role-meta">
-                            <p class="role-when">Dec 2024 – May 2025</p>
-                            <p class="role-where">University of Georgia</p>
-                        </div>
-                        <div>
-                            <h3 class="role-title">Public Relations Specialist</h3>
-                            <p class="role-org">Xi Kappa Fraternity Inc.</p>
-                            <ul class="role-points">
-                                <li>Grew social media engagement by 200%, generating 68,000+ views across platforms
-                                    through strategic content creation and analytics tracking.</li>
-                            </ul>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects -->
-        <section class="section" id="projects">
-            <div class="container">
-                <p class="eyebrow reveal">Projects</p>
-                <h2 class="section-title reveal">Things I've shipped. And things I'm shipping.</h2>
-
-                <div class="tiles">
-                    <article class="tile tile-wide lift reveal">
-                        <div class="tile-copy">
-                            <p class="eyebrow eyebrow-sm eyebrow-live"><span class="dot" aria-hidden="true"></span>Live
-                            </p>
-                            <h3 class="tile-title">LiveFlightWatch</h3>
-                            <p class="tile-desc">A full‑stack flight tracker inspired by airport departure boards —
-                                live departures and arrivals for any airport worldwide, plus lookup by flight number.
-                                Built with a React/TypeScript front end and a FastAPI backend behind a
-                                swappable‑provider architecture, with TTL caching and graceful handling of the flight
-                                data provider's rate limits. Fully tested (pytest, Vitest) with GitHub Actions running
-                                the suite, lint, and build on every push.</p>
-                            <ul class="chips">
-                                <li>React &amp; TypeScript</li>
-                                <li>FastAPI</li>
-                                <li>CI/CD</li>
-                            </ul>
-                            <div class="tile-links">
-                                <a class="link-arrow" href="https://live-flight-watch.vercel.app" target="_blank"
-                                    rel="noopener">Live demo</a>
-                                <a class="link-arrow" href="https://github.com/exearthur/LiveFlightWatch"
-                                    target="_blank" rel="noopener">View code</a>
-                            </div>
-                        </div>
-                        <div class="tile-media">
-                            <div class="device">
-                                <div class="device-bar" aria-hidden="true"><span></span><span></span><span></span>
-                                </div>
-                                <img src="images/project-flightwatch.png" alt="LiveFlightWatch flight tracker interface"
-                                    width="1600" height="660" loading="lazy">
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="tile lift reveal">
-                        <div class="tile-copy">
-                            <p class="eyebrow eyebrow-sm">December 2025</p>
-                            <h3 class="tile-title">Movie Ticket Booking System</h3>
-                            <p class="tile-desc">Java backend with MongoDB integration, seat reservation logic, and
-                                end‑to‑end booking workflows validated across multiple input scenarios.</p>
-                            <ul class="chips">
-                                <li>Java</li>
-                                <li>MongoDB</li>
-                                <li>Testing</li>
-                            </ul>
-                        </div>
-                        <div class="tile-media tile-media-shot">
-                            <img src="images/project-cinemabook.png" alt="Athens CinemaBook movie listing interface"
-                                width="1100" height="590" loading="lazy">
-                        </div>
-                    </article>
-
-                    <article class="tile tile-dark lift reveal">
-                        <div class="tile-copy">
-                            <p class="eyebrow eyebrow-sm">July 2024 &middot; Deployed at IRC Consulting</p>
-                            <h3 class="tile-title">AI‑Powered Business Card Scanner</h3>
-                            <p class="tile-desc">A Python script that uses the OpenAI API to extract and structure
-                                contact info from scanned business cards, automating lead entry into company
-                                databases.</p>
-                            <ul class="chips">
-                                <li>Python</li>
-                                <li>OpenAI API</li>
-                                <li>Automation</li>
-                            </ul>
-                        </div>
-                        <div class="tile-media tile-media-card" aria-hidden="true">
-                            <div class="bizcard">
-                                <div class="bizcard-line bizcard-name"></div>
-                                <div class="bizcard-line"></div>
-                                <div class="bizcard-line short"></div>
-                                <div class="scanline"></div>
-                            </div>
-                            <div class="bizcard-json">
-                                <span class="k">"name"</span>: <span class="v">"Jane Doe"</span>,<br>
-                                <span class="k">"company"</span>: <span class="v">"Acme Co."</span>,<br>
-                                <span class="k">"email"</span>: <span class="v">"jane@acme.co"</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills -->
-        <section class="section section-gray" id="skills">
-            <div class="container">
-                <p class="eyebrow reveal">Skills</p>
-                <h2 class="section-title reveal">The toolkit.</h2>
-
-                <div class="bento stagger">
-                    <div class="bento-cell bento-wide lift reveal">
-                        <h3 class="bento-title">Languages</h3>
-                        <ul class="chips chips-lg">
-                            <li>Java</li>
-                            <li>C / C++</li>
-                            <li>Python</li>
-                            <li>TypeScript</li>
-                            <li>JavaScript</li>
-                            <li>HTML</li>
-                            <li>CSS</li>
-                        </ul>
-                    </div>
-                    <div class="bento-cell lift reveal">
-                        <h3 class="bento-title">Frameworks</h3>
-                        <ul class="chips chips-lg">
-                            <li>React</li>
-                            <li>Spring Boot</li>
-                            <li>Node.js</li>
-                            <li>Bootstrap</li>
-                        </ul>
-                    </div>
-                    <div class="bento-cell lift reveal">
-                        <h3 class="bento-title">Databases</h3>
-                        <ul class="chips chips-lg">
-                            <li>MySQL</li>
-                            <li>MongoDB</li>
-                        </ul>
-                    </div>
-                    <div class="bento-cell lift reveal">
-                        <h3 class="bento-title">Tools</h3>
-                        <ul class="chips chips-lg">
-                            <li>Git</li>
-                            <li>Google Analytics 4</li>
-                            <li>WordPress</li>
-                        </ul>
-                    </div>
-                    <div class="bento-cell bento-accent lift reveal">
-                        <h3 class="bento-title">Coursework</h3>
-                        <p class="bento-text">Algorithms &middot; Computer Networks &middot; Systems Programming
-                            &middot;
-                            Software Engineering &middot; Data Structures &middot; Data &amp; AI</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education -->
-        <section class="section" id="education">
-            <div class="container">
-                <p class="eyebrow reveal">Education</p>
-                <h2 class="section-title reveal">Two campuses. One degree.</h2>
-
-                <div class="edu-grid stagger">
-                    <article class="edu tint-blue lift reveal">
-                        <p class="eyebrow eyebrow-sm">Expected December 2026</p>
-                        <h3 class="edu-school">University of Georgia</h3>
-                        <p class="edu-degree">B.S. in Computer Science</p>
-                        <p class="edu-loc">Athens, Georgia</p>
-                        <p class="edu-gpa"><span class="gpa-num">3.37</span><span class="gpa-of">/ 4.00 GPA</span></p>
-                    </article>
-                    <article class="edu tint-red lift reveal">
-                        <p class="eyebrow eyebrow-sm">August 2023 – 2024</p>
-                        <h3 class="edu-school">Sogang University</h3>
-                        <p class="edu-degree">Study Abroad</p>
-                        <p class="edu-loc">Seoul, South Korea</p>
-                        <p class="edu-gpa"><span class="gpa-num">3.57</span><span class="gpa-of">/ 4.30 GPA</span></p>
-                    </article>
-                </div>
-
-                <div class="honors reveal">
-                    <div class="honor card">
-                        <svg class="icon-badge tint-gold">
-                            <use href="#icon-star" />
-                        </svg>
-                        <div>
-                            <p class="honor-title">Presidential Scholar</p>
-                            <p class="honor-when">Summer 2026</p>
-                        </div>
-                    </div>
-                    <div class="honor card">
-                        <svg class="icon-badge tint-gold">
-                            <use href="#icon-star" />
-                        </svg>
-                        <div>
-                            <p class="honor-title">Dean's List</p>
-                            <p class="honor-when">Summer 2025 &middot; Spring 2023 &middot; Fall 2022</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- GitHub Activity -->
-        <section class="section section-gray" id="github">
-            <div class="container">
-                <p class="eyebrow eyebrow-live reveal"><span class="dot" aria-hidden="true"></span>Live from GitHub</p>
-                <h2 class="section-title reveal">Always shipping something.</h2>
-                <p class="section-lead reveal">A running log of what I'm building, pulled straight from
-                    <a href="https://github.com/exearthur" target="_blank" rel="noopener">github.com/exearthur</a>.
-                </p>
-
-                <div class="gh-graph-wrap reveal">
-                    <img class="gh-graph" id="gh-graph" src="https://ghchart.rshah.org/0071e3/exearthur"
-                        alt="Arthur Pacheco's GitHub contribution graph for the past year" width="721" height="112"
-                        loading="lazy">
-                </div>
-
-                <div class="gh-repos" id="gh-repos" aria-live="polite" hidden>
-                    <div class="gh-repo gh-skeleton" aria-hidden="true"></div>
-                    <div class="gh-repo gh-skeleton" aria-hidden="true"></div>
-                    <div class="gh-repo gh-skeleton" aria-hidden="true"></div>
-                    <div class="gh-repo gh-skeleton" aria-hidden="true"></div>
-                </div>
-
-                <p class="gh-fallback-link" id="gh-fallback" hidden>
-                    <a class="link-arrow" href="https://github.com/exearthur?tab=repositories" target="_blank"
-                        rel="noopener">Browse all repositories on GitHub</a>
-                </p>
-                <noscript>
-                    <p class="gh-fallback-link">
-                        <a class="link-arrow" href="https://github.com/exearthur?tab=repositories" target="_blank"
-                            rel="noopener">Browse all repositories on GitHub</a>
-                    </p>
-                </noscript>
-            </div>
-        </section>
-
-        <!-- Call to action -->
-        <section class="section section-dark cta">
-            <div class="container cta-inner stagger">
-                <h2 class="cta-title reveal">Let's build something.</h2>
-                <p class="cta-sub reveal">Open to internships and new‑grad software engineering roles.</p>
-                <div class="actions reveal">
-                    <a class="btn" href="contact.html">Contact me</a>
-                    <a class="link-arrow" href="https://www.linkedin.com/in/arthur-amc-pacheco" target="_blank"
-                        rel="noopener">Connect on LinkedIn</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container footer-inner">
-            <p>Copyright &copy; 2026 Arthur Pacheco. All rights reserved.</p>
-            <ul class="footer-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="mailto:arthur.amc.pacheco@gmail.com">Email</a></li>
-                <li><a href="https://www.linkedin.com/in/arthur-amc-pacheco" target="_blank" rel="noopener">LinkedIn</a>
-                </li>
-                <li><a href="https://github.com/exearthur" target="_blank" rel="noopener">GitHub</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </footer>
-
-    <script src="js/main.js" defer></script>
+<body id="top">
+    <!-- `npm run build` replaces the placeholder with the prerendered page
+         (scripts/prerender.mjs); in `npm run dev` React renders into it. -->
+    <div id="root"><!--app--></div>
+    <script type="module" src="/src/entries/home.tsx"></script>
 </body>
 
 </html>
