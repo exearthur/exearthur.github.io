@@ -9,7 +9,7 @@ export function Education({ alt }: SectionProps) {
     <Section id="education" alt={alt} title="Education." subtitle="Two campuses, one degree.">
       <div className="edu-grid stagger">
         {schools.map((school) => (
-          <Reveal as="article" className="edu card" key={school.name}>
+          <Reveal as="article" className="edu card" key={school.name} data-spotlight>
             <p className="meta">{school.period}</p>
             <h3 className="edu-school">{school.name}</h3>
             <p className="edu-degree">{school.degree}</p>
