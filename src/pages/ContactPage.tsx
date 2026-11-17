@@ -1,6 +1,7 @@
 import { Icon, type IconName } from '../components/Icon';
 import { Layout } from '../components/Layout';
 import { Reveal } from '../components/Reveal';
+import { HelloScript } from '../components/ui/HelloScript';
 import { features, site } from '../config/site';
 import { contactCopy } from '../data/profile';
 import { external } from '../lib/cx';
@@ -38,11 +39,18 @@ export function ContactPage() {
     <Layout page="contact" showAvatar>
       <header className="hero hero-compact">
         <div className="container">
-          <h1 className="hero-title">
-            <span className="mask">
-              <span className="mask-in">{contactCopy.title}</span>
-            </span>
-          </h1>
+          {features.helloScript ? (
+            <h1 className="hero-title hero-hello">
+              <span className="sr-only">{contactCopy.title}</span>
+              <HelloScript />
+            </h1>
+          ) : (
+            <h1 className="hero-title">
+              <span className="mask">
+                <span className="mask-in">{contactCopy.title}</span>
+              </span>
+            </h1>
+          )}
           <p className="hero-lead">{contactCopy.lead}</p>
         </div>
       </header>

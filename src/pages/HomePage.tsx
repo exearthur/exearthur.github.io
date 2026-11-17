@@ -1,5 +1,6 @@
 import type { ComponentType } from 'react';
 import { Layout } from '../components/Layout';
+import { Intro } from '../components/ui/Intro';
 import type { SectionProps } from '../components/Section';
 import { enabledSections, NAV_HEIGHT, type SectionId } from '../config/site';
 import { useInView } from '../hooks/useInView';
@@ -30,6 +31,7 @@ export function HomePage() {
 
   return (
     <Layout page="home" showAvatar={!portraitInView}>
+      <Intro />
       <Hero portraitRef={portraitRef} />
       {enabledSections.map(({ id }, index) => {
         const SectionComponent = sectionComponents[id];

@@ -52,7 +52,7 @@
 
   --container: 1024px;
   --gutter: 22px;
-  --nav-h: 48px;
+  --nav-h: 72px; /* NAV_HEIGHT in site.ts */
 
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -444,54 +444,59 @@ dd {
 
 /* ---------- 4. Layout ---------- */
 
-/* Nav */
+/* Nav: the site's one navigation, a floating liquid glass pill
+   (LiquidNavbar.tsx, wired up in Nav.tsx). It floats at the top on wider
+   screens and at the bottom on phones. The strip it sits in is
+   transparent and lets clicks through. The component injects its own
+   stylesheet after this one, hence the `.nav .nav-pill.nimbus-nav` weight. */
 .nav {
   position: sticky;
   top: 0;
   z-index: 50;
   height: var(--nav-h);
-  background: var(--nav-bg);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s var(--ease);
-}
-
-.nav.is-scrolled {
-  border-bottom-color: var(--hairline);
-}
-
-.nav-inner {
-  max-width: var(--container);
-  height: 100%;
-  margin: 0 auto;
-  padding: 0 var(--gutter);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  justify-content: center;
+  padding: 0 16px;
+  pointer-events: none;
 }
 
-.nav-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 15px;
+.nav .nav-pill.nimbus-nav {
+  --n-tint: var(--nav-bg);
+  --n-fg: var(--text);
+  --n-fg-soft: var(--text-2);
+  max-width: 100%;
+  pointer-events: auto;
+}
+
+.nav .nav-pill .nimbus-item {
+  gap: 7px;
+  padding: 0 14px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+}
+
+.nav .nav-pill .nv-ico svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+}
+
+.nav .nav-pill .nimbus-item.nav-item-brand {
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: -0.01em;
   color: var(--text);
-  white-space: nowrap;
-  transition: opacity 0.2s var(--ease);
 }
 
-.nav-brand:hover {
-  text-decoration: none;
-  opacity: 0.7;
+/* Contact keeps the accent so it still reads as the call to action. */
+.nav .nav-pill .nimbus-item.nav-item-cta {
+  color: var(--link);
+  font-weight: 600;
 }
 
 /* Brand glyph and avatar share one slot. The avatar takes over once the
    hero portrait has scrolled away (`.has-avatar`, set by <Nav>), so
-   the face a visitor just saw stays with them at the top of the page. */
+   the face a visitor just saw stays with them. */
 .nav-id {
   position: relative;
   flex: 0 0 auto;
@@ -506,7 +511,7 @@ dd {
   transition: opacity 0.35s var(--ease), transform 0.5s var(--ease-out);
 }
 
-.nav-mark {
+.nav .nav-pill .nav-mark {
   width: 18px;
   height: 18px;
   margin: auto;
@@ -535,39 +540,6 @@ dd {
 .nav.has-avatar .nav-avatar {
   opacity: 1;
   transform: none;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 26px;
-}
-
-.nav-links a {
-  font-size: 13px;
-  letter-spacing: -0.01em;
-  color: var(--text-2);
-  transition: color 0.2s var(--ease);
-}
-
-.nav-links a:hover,
-.nav-links a.is-active {
-  color: var(--text);
-  text-decoration: none;
-}
-
-.nav-links .nav-cta {
-  padding: 5px 13px;
-  border-radius: var(--pill);
-  background: var(--accent);
-  color: #fff;
-  font-weight: 500;
-  transition: background-color 0.2s var(--ease);
-}
-
-.nav-links .nav-cta:hover {
-  background: var(--accent-hover);
-  color: #fff;
 }
 
 /* Sections */
@@ -623,7 +595,7 @@ dd {
 
 /* Hero */
 .hero {
-  padding: 96px 0 0;
+  padding: 72px 0 0;
   /* The fanned deck may reach past the gutter on narrow screens. */
   overflow-x: clip;
 }
@@ -752,7 +724,7 @@ dd {
 
 /* Compact, centered hero used on the contact page. */
 .hero-compact {
-  padding: 88px 0 64px;
+  padding: 64px 0 64px;
   text-align: center;
 }
 
@@ -1608,14 +1580,126 @@ html:not(.js) .gh-graph {
   }
 }
 
+/* Text kept for screen readers and search where a drawing stands in for it. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Contact headline: "hello" written out in one stroke (HelloScript.tsx). */
+.hero-hello {
+  margin-top: 0;
+}
+
+.hero-hello .hello-script {
+  width: auto;
+  height: clamp(84px, 14vw, 140px);
+  margin: 0 auto;
+  color: var(--text);
+}
+
+/* Before the script runs, the strokes sit at length 0; without JS they never
+   would, so show the word fully drawn. */
+html:not(.js) .hello-script path {
+  opacity: 1 !important;
+  stroke-dasharray: none !important;
+}
+
+/* Welcome intro (Intro.tsx). Shown only while index.html's script has put
+   `show-intro` on <html>, so returning visitors and no-JS visitors never see it. */
+.intro {
+  --intro-bg: #1d1d1f;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: var(--intro-bg);
+  color: #f5f5f7;
+  cursor: pointer;
+}
+
+/* Before hydration the <html> flag shows it; after, the component keeps it
+   shown through the lift even though the flag is already gone by then. */
+html.show-intro .intro,
+.intro.is-active {
+  display: flex;
+}
+
+/* Hold the page still underneath: no scrolling, and the hero's entrance
+   waits so it plays as the panel lifts rather than unseen behind it. */
+html.show-intro {
+  overflow: hidden;
+}
+
+html.show-intro .hero,
+html.show-intro .hero * {
+  animation-play-state: paused !important;
+}
+
+.intro-word {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+
+.intro-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--link);
+}
+
+/* The bowed edge hangs below the panel and flattens as it lifts. */
+.intro-edge {
+  position: absolute;
+  top: calc(100% - 1px);
+  left: 0;
+  width: 100%;
+  height: 22vh;
+  fill: var(--intro-bg);
+  overflow: visible;
+}
+
+@media (prefers-color-scheme: dark) {
+  .intro {
+    --intro-bg: var(--surface);
+  }
+}
+
 /* ---------- 6. Responsive ---------- */
-@media (max-width: 900px) {
-  .nav-links {
-    gap: 20px;
+/* Between phone and wide desktop: the name and Contact keep their
+   labels, the rest go icon-only (names stay as accessible labels). */
+@media (max-width: 1100px) {
+  .nav .nav-pill .nimbus-item {
+    padding: 0 12px;
   }
 
+  .nav .nav-pill .nimbus-item:not(.nav-item-brand):not(.nav-item-cta) .nimbus-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 900px) {
   .hero {
-    padding-top: 72px;
+    padding-top: 56px;
   }
 
   .hero-inner {
@@ -1651,6 +1735,7 @@ html:not(.js) .gh-graph {
 
   .feature-links {
     flex-direction: row;
+    flex-wrap: wrap; /* the GitHub link drops under the button on small phones */
     align-items: center;
     gap: 14px 28px;
   }
@@ -1689,9 +1774,44 @@ html:not(.js) .gh-graph {
     margin-top: 40px;
   }
 
-  /* Phone nav keeps only what a visitor acts on: résumé and contact. */
-  .nav-links .nav-section {
-    display: none;
+  /* The nav moves to the bottom, within thumb reach, as icons only. It
+     no longer takes room at the top. */
+  :root {
+    --nav-h: 0px;
+  }
+
+  .nav {
+    position: fixed;
+    inset: auto 0 calc(12px + env(safe-area-inset-bottom, 0px));
+    height: auto;
+    padding: 0 12px;
+  }
+
+  /* Outweighs the component's own small-screen padding (13px), which
+     would push eight icons past a 360px screen. */
+  .nav .nav-pill.nimbus-nav .nimbus-item {
+    padding: 0 9px;
+  }
+
+  .nav .nav-pill .nv-ico svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  @media (max-width: 380px) {
+    .nav .nav-pill.nimbus-nav .nimbus-item {
+      padding: 0 7px;
+    }
+
+    .nav .nav-pill .nv-ico svg {
+      width: 19px;
+      height: 19px;
+    }
+  }
+
+  /* Room under the footer so the nav never covers its links. */
+  .footer {
+    padding-bottom: calc(22px + 84px + env(safe-area-inset-bottom, 0px));
   }
 
   .hero {
