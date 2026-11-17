@@ -39,6 +39,20 @@
     <!-- Marks the document as scripted before first paint, so scroll-reveal
          styles only ever hide content when the script that shows it will run. -->
     <script>document.documentElement.classList.add('js');</script>
+    <!-- Welcome intro (src/components/ui/Intro.tsx): play it on the first
+         visit of a session unless the visitor prefers reduced motion. The
+         timeout releases the page if the app script never arrives. -->
+    <script>
+        (function () {
+            try {
+                if (sessionStorage.getItem('intro-seen')) return;
+                if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+                var root = document.documentElement;
+                root.classList.add('show-intro');
+                setTimeout(function () { root.classList.remove('show-intro'); }, 8000);
+            } catch (e) {}
+        })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">

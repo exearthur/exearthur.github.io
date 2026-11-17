@@ -3,7 +3,6 @@ import { features } from '../config/site';
 import { useSpotlight } from '../hooks/useSpotlight';
 import { Footer } from './Footer';
 import { Nav, type PageId } from './Nav';
-
 interface LayoutProps {
   page: PageId;
   showAvatar: boolean;

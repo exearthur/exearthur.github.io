@@ -21,8 +21,12 @@ export const routes = {
   contact: '/contact.html',
 } as const;
 
-/** Height of the sticky nav in px. Keep in sync with `--nav-h` in style.css. */
-export const NAV_HEIGHT = 48;
+/**
+ * Height in px of the strip the floating nav pill sits in at the top of wider
+ * screens. Keep in sync with `--nav-h` in style.css. (On phones the pill sits
+ * at the bottom and takes no room at the top.)
+ */
+export const NAV_HEIGHT = 72;
 
 export type SectionId = 'projects' | 'experience' | 'skills' | 'education' | 'github';
 
@@ -60,6 +64,13 @@ export const features = {
   experienceTimeline: true,
   /** Cursor-following glow on cards (projects, education, repos, contact). */
   spotlight: true,
+  /**
+   * Home page welcome screen on a visitor's first load of the session:
+   * greetings in several languages, then the panel lifts to reveal the hero.
+   */
+  intro: true,
+  /** Contact headline: "hello" written out in one cursive stroke. Off shows plain text. */
+  helloScript: true,
   github: {
     /** Contribution graph image. */
     graph: true,
