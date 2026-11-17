@@ -56,6 +56,7 @@ export function ContactPage() {
                 className="contact-card card lift"
                 href={method.href}
                 key={method.label}
+                data-spotlight
                 {...(method.external ? external : {})}
               >
                 <Icon name={method.icon} className="icon-badge" />

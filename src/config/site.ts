@@ -53,6 +53,13 @@ export const features = {
   heroDeck: true,
   /** Fade sections in as they scroll into view. Off shows everything at once. */
   scrollReveal: true,
+  /**
+   * Show Experience as a timeline: a rail down the left with a beam that
+   * fills as you scroll. Off falls back to plain rows divided by hairlines.
+   */
+  experienceTimeline: true,
+  /** Cursor-following glow on cards (projects, education, repos, contact). */
+  spotlight: true,
   github: {
     /** Contribution graph image. */
     graph: true,

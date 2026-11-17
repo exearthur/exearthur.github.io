@@ -85,7 +85,7 @@ function RepoGrid() {
 
 function RepoCard({ repo }: { repo: Repo }) {
   return (
-    <a className="gh-repo" href={repo.html_url} {...external}>
+    <a className="gh-repo" href={repo.html_url} {...external} data-spotlight>
       <h3 className="gh-repo-name">{repo.name}</h3>
       {repo.description && <p className="gh-repo-desc">{repo.description}</p>}
       <p className="gh-repo-meta">

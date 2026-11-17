@@ -63,7 +63,7 @@ function Stack({ items }: { items: string[] }) {
 function Feature({ project }: { project: FeatureProject }) {
   const { primaryLink, secondaryLink, screenshot } = project;
   return (
-    <Reveal as="article" className="feature">
+    <Reveal as="article" className="feature" data-spotlight>
       <div className="feature-head">
         <div className="feature-intro">
           <ProjectMeta project={project} />
@@ -107,7 +107,7 @@ function Feature({ project }: { project: FeatureProject }) {
 
 function Tile({ project }: { project: TileProject }) {
   return (
-    <Reveal as="article" className="tile">
+    <Reveal as="article" className="tile" data-spotlight>
       <div className="tile-copy">
         <ProjectMeta project={project} />
         <h3 className="tile-title">{project.title}</h3>
