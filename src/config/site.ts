@@ -5,6 +5,7 @@
 
 export const site = {
   name: 'Arthur Pacheco',
+  url: 'https://exearthur.github.io',
   email: 'arthur.amc.pacheco@gmail.com',
   phone: { display: '(678) 262‑8641', href: 'tel:+16782628641' },
   github: { username: 'exearthur', url: 'https://github.com/exearthur' },
@@ -81,6 +82,13 @@ export const features = {
     maxRepos: 4,
     /** How long a visitor's browser reuses the repo list before refetching. */
     cacheMinutes: 60,
+  },
+  analytics: {
+    /**
+     * Google Analytics 4 measurement ID (G-XXXXXXXXXX), from GA ->
+     * Admin -> Data streams -> your web stream. Empty turns analytics off.
+     */
+    measurementId: 'G-7LTRB2K0GG',
   },
   contactForm: {
     enabled: true,

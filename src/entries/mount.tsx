@@ -1,5 +1,6 @@
 import { StrictMode, type ReactNode } from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
+import { initAnalytics } from '../lib/analytics';
 import '../styles/style.css';
 
 /**
@@ -17,4 +18,5 @@ export function mount(page: ReactNode): void {
   } else {
     createRoot(root).render(app);
   }
+  initAnalytics();
 }
