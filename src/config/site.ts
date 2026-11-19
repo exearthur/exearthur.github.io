@@ -70,6 +70,12 @@ export const features = {
    * greetings in several languages, then the panel lifts to reveal the hero.
    */
   intro: true,
+  /**
+   * What plays in the welcome screen: 'terminal' types a command and ticks
+   * off loading tasks with CLI spinners; 'greetings' flashes "Hello" in
+   * several languages.
+   */
+  introStyle: 'terminal' as 'terminal' | 'greetings',
   /** Contact headline: "hello" written out in one cursive stroke. Off shows plain text. */
   helloScript: true,
   github: {

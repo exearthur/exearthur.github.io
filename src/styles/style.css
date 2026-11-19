@@ -1962,6 +1962,123 @@ html.show-intro .hero * {
   animation-play-state: paused !important;
 }
 
+/* Terminal intro: a small window, centred, in the site's mono face. */
+.term {
+  width: min(520px, calc(100vw - 32px));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6);
+  font-family: var(--font-mono);
+  font-size: clamp(14px, 1.6vw, 16px);
+  letter-spacing: 0;
+  text-align: left;
+}
+
+.term-bar {
+  position: relative;
+  display: flex;
+  gap: 7px;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.term-bar > span {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ff5f57;
+}
+
+.term-bar > span:nth-child(2) {
+  background: #febc2e;
+}
+
+.term-bar > span:nth-child(3) {
+  background: #28c840;
+}
+
+.term-title {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  font-size: 12px;
+  color: #8e8e93;
+  pointer-events: none;
+}
+
+.term-body {
+  display: grid;
+  gap: 8px;
+  padding: 18px 20px 22px;
+}
+
+.term-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 1.5em;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.term-prompt {
+  color: #8e8e93;
+}
+
+.term-status {
+  display: inline-grid;
+  place-items: center;
+  width: 2ch;
+  flex: 0 0 auto;
+  font-size: 1.2em; /* braille frames are drawn small; this evens them with ✓ */
+  color: var(--link);
+}
+
+.term-status.is-done {
+  color: var(--live-dot);
+}
+
+.term-task.is-done {
+  color: #a1a1a6;
+}
+
+.term-welcome {
+  margin-top: 6px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.term-caret {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  margin-left: 2px;
+  background: currentColor;
+}
+
+.term-caret.is-blink {
+  animation: term-blink 1s steps(1) infinite;
+}
+
+@keyframes term-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.cli-spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1ch;
+  font-family: var(--font-mono);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
 .intro-word {
   display: flex;
   align-items: center;
