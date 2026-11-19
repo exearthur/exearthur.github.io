@@ -73,9 +73,14 @@ export const features = {
   /** Contact headline: "hello" written out in one cursive stroke. Off shows plain text. */
   helloScript: true,
   github: {
-    /** Contribution graph image. */
+    /** Contribution graph. */
     graph: true,
-    /** Hex colour (no #) the graph is drawn in. */
+    /**
+     * Draw the graph as the interactive 3D skyline (live data, drag to orbit).
+     * Off, or if the data can't be fetched, shows the plain image instead.
+     */
+    skyline: true,
+    /** Hex colour (no #) the image graph is drawn in. */
     graphColor: '0071e3',
     /** Live cards for the most recently pushed public repos. */
     repos: true,

@@ -79,3 +79,29 @@ export async function fetchRecentRepos(
   if (!repos.length) throw new Error('No public repos');
   return repos;
 }
+
+export interface ContributionDay {
+  date: string;
+  count: number;
+}
+
+/**
+ * Daily contribution counts for the past year. GitHub only exposes these
+ * through its authenticated GraphQL API, so this goes through
+ * github-contributions-api.jogruber.de, a public proxy that reads the
+ * profile's contribution calendar (CORS-open, no key).
+ */
+export async function fetchContributions(
+  username: string,
+  signal?: AbortSignal,
+): Promise<ContributionDay[]> {
+  const response = await fetch(
+    `https://github-contributions-api.jogruber.de/v4/${username}?y=last`,
+    { signal },
+  );
+  if (!response.ok) throw new Error('Contributions API error');
+  const data = (await response.json()) as { contributions?: ContributionDay[] };
+  const days = (data.contributions ?? []).map(({ date, count }) => ({ date, count }));
+  if (!days.length) throw new Error('No contribution data');
+  return days;
+}

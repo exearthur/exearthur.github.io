@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Reveal } from '../components/Reveal';
 import { Section, type SectionProps } from '../components/Section';
+import { ContributionSkyline, type PaletteInput } from '../components/ui/ContributionSkyline';
 import { features, site } from '../config/site';
+import { useGitHubContributions } from '../hooks/useGitHubContributions';
 import { useGitHubRepos } from '../hooks/useGitHubRepos';
 import { cx, external } from '../lib/cx';
 import { languageColor, timeAgo, type Repo } from '../lib/github';
@@ -12,7 +14,7 @@ const settings = features.github;
 export function GitHubActivity({ alt }: SectionProps) {
   return (
     <Section id="github" alt={alt} title="On GitHub." subtitle="Recent public work, pulled live.">
-      {settings.graph && <ContributionGraph />}
+      {settings.graph && (settings.skyline ? <Skyline /> : <ContributionGraph />)}
       {settings.repos && <RepoGrid />}
       <Reveal as="p" className="gh-more">
         <a className="link-arrow" href={`${site.github.url}?tab=repositories`} {...external}>
@@ -20,6 +22,52 @@ export function GitHubActivity({ alt }: SectionProps) {
         </a>
       </Reveal>
     </Section>
+  );
+}
+
+/** The site accent (#0071e3) as four steps, lightest activity to heaviest. */
+const skylinePalette: PaletteInput = {
+  light: ['#b4d6fa', '#6aaef2', '#0071e3', '#004b97'],
+  dark: ['#0b2c52', '#0f4d94', '#1f7ae0', '#6cb4ff'],
+};
+
+/**
+ * Live contribution data as a heat map that rises into a 3D skyline when it
+ * scrolls into view. Until the data arrives a placeholder holds the space;
+ * if it can't be fetched (and nothing is cached) the plain image graph
+ * stands in, so the section never comes up empty.
+ */
+function Skyline() {
+  const state = useGitHubContributions(username, settings.cacheMinutes);
+  if (state.status === 'unavailable') return <ContributionGraph />;
+
+  return (
+    <Reveal className="sky-wrap">
+      {state.status === 'ready' ? (
+        <ContributionSkyline
+          data={state.days}
+          palette={skylinePalette}
+          headerExtra={
+            <a className="sky-profile" href={site.github.url} {...external}>
+              @{username}
+            </a>
+          }
+        />
+      ) : (
+        <>
+          <div className="sky sky-placeholder" aria-hidden="true" />
+          <noscript>
+            <img
+              className="gh-graph"
+              src={graphUrl}
+              alt={`${site.name}'s GitHub contribution graph for the past year`}
+              width={721}
+              height={112}
+            />
+          </noscript>
+        </>
+      )}
+    </Reveal>
   );
 }
 
